@@ -1,10 +1,12 @@
+// === ORDER VIA WHATSAPP ===
 function orderToken(token, price) {
   const phone = "6281244170370"; // GANTI nomor kamu di sini (tanpa 0)
   const message = `Halo, saya mau pesan paket ${token} Token seharga Rp${price}.`;
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 }
-document.getElementById("orderForm").addEventListener("submit", function(event) {
+
+document.getElementById("orderForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
   const phone = "6281244170370"; // Nomor WA kamu
@@ -16,30 +18,30 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
   const payment = document.getElementById("payment").value;
 
   if (!token || !method || !club || !email || !password || !payment) {
-    alert("ΓÜá∩╕Å Semua kolom wajib diisi dulu!");
+    alert("⚠️ Semua kolom wajib diisi dulu!");
     return;
   }
 
   // Data pembayaran
   let paymentText = "";
   if (payment === "BCA") {
-    paymentText = `≡ƒÅª BCA: 8300230408 a.n. Subhan Fajri`;
+    paymentText = `🏦 BCA: 8300230408 a.n. Subhan Fajri`;
   } else if (payment === "DANA") {
-    paymentText = `≡ƒô▒ DANA: 081244170370`;
+    paymentText = `📱 DANA: 081244170370`;
   } else if (payment === "PayPal") {
-    paymentText = `≡ƒÆ╕ PayPal: cirooarsa@gmail.com`;
+    paymentText = `💸 PayPal: cirooarsa@gmail.com`;
   }
 
   // Konfirmasi sebelum kirim
   const konfirmasi = confirm(
     `Pastikan data sudah benar:\n\n` +
-    `≡ƒôª Paket: ${token}\n` +
-    `≡ƒöæ Login Via: ${method}\n` +
-    `≡ƒÅ╖∩╕Å Nama Club: ${club}\n` +
-    `≡ƒôº Email: ${email}\n` +
-    `≡ƒöÆ Password: ${password}\n` +
-    `≡ƒÆ░ Pembayaran: ${paymentText}\n\n` +
-    `Kirim ke WhatsApp penjoki?`
+      `💠 Paket: ${token}\n` +
+      `🔑 Login Via: ${method}\n` +
+      `⚽ Nama Club: ${club}\n` +
+      `📧 Email: ${email}\n` +
+      `🔐 Password: ${password}\n` +
+      `💳 Pembayaran: ${paymentText}\n\n` +
+      `Kirim ke WhatsApp penjoki?`
   );
 
   if (konfirmasi) {
@@ -49,15 +51,15 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
       `Nama Club: ${club}\n` +
       `Email: ${email}\n` +
       `Password: ${password}\n\n` +
-      `≡ƒÆ░ Pembayaran via:\n${paymentText}\n\n` +
-      `ΓÜá∩╕Å Harap kirim bukti transfer setelah pembayaran.`;
+      `💳 Pembayaran via:\n${paymentText}\n\n` +
+      `⚠️ Harap kirim bukti transfer setelah pembayaran.`;
 
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(pesan)}`;
     window.location.href = url;
   }
 });
-// === LOGO MUTER DI TEPI-TEPI LAYAR (super smooth & lambat) ===
 
+// === LOGO MUTER DI TEPI-TEPI LAYAR (super smooth & lambat) ===
 const logo = document.querySelector(".logo-wrapper");
 
 if (logo) {
